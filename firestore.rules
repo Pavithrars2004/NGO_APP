@@ -1,0 +1,59 @@
+/**
+ * @fileOverview Firestore Security Rules for Volunteer Management App
+ *
+ * Core Philosophy:
+ * This ruleset prioritizes a flexible data model for prototyping. It allows any authenticated user to create opportunities or applications and for any unauthenticated user to read them. 
+ * For application updates, we deny all write requests by default, as this operation requires a more secure and well-defined access control.
+ *
+ * Data Structure:
+ * - /opportunities/{opportunityId}: Stores volunteer opportunity data.
+ * - /applications/{applicationId}: Stores application data.
+ *
+ * Key Security Decisions:
+ * - Public read access is granted to both opportunities and applications for wider visibility and ease of access.
+ * - Listing of any collection is globally enabled.
+ * - All write requests to the application collection are blocked until refined access control is implemented. This is for demonstration and should be replaced with a permissioning system.
+ *
+ * Denormalization for Authorization:
+ *   N/A (Currently not required, but consider adding creatorId to Opportunities for owner-based access control if needed.)
+ *
+ * Structural Segregation:
+ *   N/A (No distinction between public/private data.)
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Rules for the /opportunities/{opportunityId} collection. Allows public read and write access.
+     * @path /opportunities/{opportunityId}
+     * @allow (get, list) Public access to read opportunities.
+     * @allow (create) Any authenticated user can create an opportunity.
+     * @deny (update, delete) No update and delete operations are allowed on opportunity documents.
+     * @principle Allows public read access and authenticated write access for creating opportunities.
+     */
+    match /opportunities/{opportunityId} {
+      allow get, list: if true;
+      allow create: if isSignedIn();
+      allow update, delete: if false;
+    }
+
+    /**
+     * @description Rules for the /applications/{applicationId} collection. Allows public read access and only creation of application documents.
+     * @path /applications/{applicationId}
+     * @allow (get, list) Public access to read applications.
+     * @allow (create) Any authenticated user can create an application.
+     * @deny (update, delete) No update and delete operations are allowed on application documents.
+     * @principle Allows public read access and authenticated write access for creating applications.
+     */
+    match /applications/{applicationId} {
+      allow get, list: if true;
+      allow create: if isSignedIn();
+      allow update, delete: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+  }
+}

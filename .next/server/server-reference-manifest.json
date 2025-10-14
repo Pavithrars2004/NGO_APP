@@ -1,0 +1,17 @@
+{
+  "node": {
+    "4038dc89124ff34e7766bf1f2e411b9497764bce0e": {
+      "workers": {
+        "app/dashboard/create/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/create/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-description-flow.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/dashboard/create/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "FEsWqujAzeeNJ2ShY0Va4cDcv3ZzYdv5BoB04jLBD+U="
+}

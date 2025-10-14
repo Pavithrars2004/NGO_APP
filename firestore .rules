@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow public read and create access for opportunities
+    match /opportunities/{opportunityId} {
+      allow read, create: if true;
+    }
+
+    // Allow anyone to submit an application
+    match /applications/{applicationId} {
+      allow read, create, update: if true;
+    }
+  }
+}

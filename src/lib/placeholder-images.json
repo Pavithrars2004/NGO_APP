@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "environment-1",
+      "description": "Volunteers planting trees in a park",
+      "imageUrl": "https://picsum.photos/seed/env1/600/400",
+      "imageHint": "nature volunteers"
+    },
+    {
+      "id": "education-1",
+      "description": "A person teaching a group of children",
+      "imageUrl": "https://picsum.photos/seed/edu1/600/400",
+      "imageHint": "teaching children"
+    },
+    {
+      "id": "healthcare-1",
+      "description": "Medical professional checking a patient's blood pressure",
+      "imageUrl": "https://picsum.photos/seed/health1/600/400",
+      "imageHint": "medical aid"
+    },
+    {
+      "id": "community-1",
+      "description": "A group of people building a house",
+      "imageUrl": "https://picsum.photos/seed/comm1/600/400",
+      "imageHint": "community building"
+    },
+    {
+      "id": "animal-welfare-1",
+      "description": "A person petting a dog at a shelter",
+      "imageUrl": "https://picsum.photos/seed/animal1/600/400",
+      "imageHint": "animal shelter"
+    },
+    {
+      "id": "food-drive-1",
+      "description": "Volunteers sorting canned goods at a food bank",
+      "imageUrl": "https://picsum.photos/seed/food1/600/400",
+      "imageHint": "food drive"
+    },
+    {
+      "id": "beach-cleanup",
+      "description": "Volunteers cleaning up a beach",
+      "imageUrl": "https://picsum.photos/seed/beach1/600/400",
+      "imageHint": "beach cleanup"
+    },
+    {
+      "id": "soup-kitchen",
+      "description": "Serving food in a soup kitchen",
+      "imageUrl": "https://picsum.photos/seed/soup1/600/400",
+      "imageHint": "soup kitchen"
+    }
+  ]
+}
